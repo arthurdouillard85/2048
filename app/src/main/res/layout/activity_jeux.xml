@@ -52,10 +52,29 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="39dp"
+                android:layout_width="519dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Login" />
+                android:gravity="center_vertical"
+                android:text="      Login"
+                android:textSize="24sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/accueil" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/rejouer" />
+
         </LinearLayout>
 
     </LinearLayout>
