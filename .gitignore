@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/compiler.xml
+/.idea/git_toolbox_prj.xml
+/.idea/migrations.xml
+/.idea/vcs.xml
