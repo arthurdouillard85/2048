@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class classement extends AppCompatActivity {
+public class Classement extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
