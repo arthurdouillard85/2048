@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".score_joueur">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/Position"
+                android:layout_width="wrap_content"
+                android:layout_height="200px"
+                android:layout_weight="1"
+                android:text="Position"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Pseudo"
+                android:layout_width="wrap_content"
+                android:layout_height="200px"
+                android:layout_weight="1"
+                android:text="Pseudo"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Score"
+                android:layout_width="wrap_content"
+                android:layout_height="200px"
+                android:layout_weight="1"
+                android:text="Score"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/meilleure_case"
+                android:layout_width="wrap_content"
+                android:layout_height="200px"
+                android:layout_weight="1"
+                android:src="@tools:sample/avatars" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
