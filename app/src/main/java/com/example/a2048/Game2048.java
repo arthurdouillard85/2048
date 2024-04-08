@@ -32,6 +32,8 @@ public class Game2048 {
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers la gauche
                     moved |= moveTile(tile, row, col, -1, 0);
+                    moved = true;
+
                 }
             }
         }
@@ -48,6 +50,7 @@ public class Game2048 {
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers la droite
                     moved |= moveTile(tile, row, col, 1, 0);
+                    moved = true;
                 }
             }
         }
@@ -64,6 +67,7 @@ public class Game2048 {
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers le haut
                     moved |= moveTile(tile, row, col, 0, -1);
+                    moved = true;
                 }
             }
         }
@@ -80,6 +84,7 @@ public class Game2048 {
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers le bas
                     moved |= moveTile(tile, row, col, 0, 1);
+                    moved = true;
                 }
             }
         }

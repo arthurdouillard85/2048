@@ -90,7 +90,7 @@
         android:layout_width="413dp"
         android:layout_height="413dp"
         android:layout_marginTop="16dp"
-        android:background="@color/black"
+        android:background="@color/white"
         android:columnCount="4"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,8 +100,8 @@
 
         <TextView
             android:id="@+id/tile00"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -109,16 +109,16 @@
 
         <TextView
             android:id="@+id/tile01"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp" />
         <TextView
             android:id="@+id/tile02"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -126,8 +126,8 @@
 
         <TextView
             android:id="@+id/tile03"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -135,8 +135,8 @@
 
         <TextView
             android:id="@+id/tile10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -144,16 +144,16 @@
 
         <TextView
             android:id="@+id/tile11"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp"/>
         <TextView
             android:id="@+id/tile12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -161,8 +161,8 @@
 
         <TextView
             android:id="@+id/tile13"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -170,8 +170,8 @@
 
         <TextView
             android:id="@+id/tile20"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -179,16 +179,16 @@
 
         <TextView
             android:id="@+id/tile21"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp" />
         <TextView
             android:id="@+id/tile22"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -196,8 +196,8 @@
 
         <TextView
             android:id="@+id/tile23"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -205,8 +205,8 @@
 
         <TextView
             android:id="@+id/tile30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -214,16 +214,16 @@
 
         <TextView
             android:id="@+id/tile31"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp"/>
         <TextView
             android:id="@+id/tile32"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -231,8 +231,8 @@
 
         <TextView
             android:id="@+id/tile33"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="103dp"
+            android:layout_height="103dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""

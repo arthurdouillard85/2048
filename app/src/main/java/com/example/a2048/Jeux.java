@@ -32,15 +32,15 @@ public class Jeux extends AppCompatActivity {
 
                 if (Math.abs(distanceX) > Math.abs(distanceY)) {
                     if (distanceX > 0) {
-                        game.moveRight();
-                    } else {
-                        game.moveLeft();
-                    }
-                } else {
-                    if (distanceY > 0) {
                         game.moveDown();
                     } else {
                         game.moveUp();
+                    }
+                } else {
+                    if (distanceY > 0) {
+                        game.moveRight();
+                    } else {
+                        game.moveLeft();
                     }
                 }
                 updateUI();
@@ -56,26 +56,30 @@ public class Jeux extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event);
+    }
+
     private void updateUI() {
         Tile[][] grid = game.getGrid();
-        //for (int i = 0; i < game.getSize(); i++) {
-        //    for (int j = 0; j < game.getSize(); j++) {
-        //        TextView textView = (TextView) binding.gridLayout.getChildAt(i * game.getSize() + j);
-        //        Tile tile = grid[i][j];
-        //        if (tile.getValue() == 0) {
-        //            textView.setText("");
-        //            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-        //        } else {
-        //            textView.setText(String.valueOf(tile.getValue()));
-        //            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
-//
-        //        }
-        //    }
-        //}
+        for (int i = 0; i < game.getSize(); i++) {
+            for (int j = 0; j < game.getSize(); j++) {
+                TextView textView = (TextView) binding.gridLayout.getChildAt(i * game.getSize() + j);
+                Tile tile = grid[i][j];
+                if (tile.getValue() == 0) {
+                    textView.setText("");
+                    textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+                } else {
+                    textView.setText(String.valueOf(tile.getValue()));
+                    textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
+
+                }
+            }
+        }
         binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
             binding.gridLayout.setOnTouchListener(null);
         }
     }
-
 }
