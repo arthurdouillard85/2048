@@ -58,21 +58,21 @@ public class Jeux extends AppCompatActivity {
 
     private void updateUI() {
         Tile[][] grid = game.getGrid();
-        for (int i = 0; i < game.getSize(); i++) {
-            for (int j = 0; j < game.getSize(); j++) {
-                TextView textView = (TextView) binding.gridLayout.getChildAt(i * game.getSize() + j);
-                Tile tile = grid[i][j];
-                if (tile.getValue() == 0) {
-                    textView.setText("");
-                    textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-                } else {
-                    textView.setText(String.valueOf(tile.getValue()));
-                    textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
-
-                }
-            }
-        }
-        binding.textViewScore.setText(getString(R.string.score) + game.getScore());
+        //for (int i = 0; i < game.getSize(); i++) {
+        //    for (int j = 0; j < game.getSize(); j++) {
+        //        TextView textView = (TextView) binding.gridLayout.getChildAt(i * game.getSize() + j);
+        //        Tile tile = grid[i][j];
+        //        if (tile.getValue() == 0) {
+        //            textView.setText("");
+        //            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+        //        } else {
+        //            textView.setText(String.valueOf(tile.getValue()));
+        //            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
+//
+        //        }
+        //    }
+        //}
+        binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
             binding.gridLayout.setOnTouchListener(null);
         }
