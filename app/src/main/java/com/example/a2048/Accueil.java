@@ -29,6 +29,7 @@ public class Accueil extends AppCompatActivity {
         });
         binding.jouer.setOnClickListener(v -> {
             Intent intent = new Intent(Accueil.this,Jeux.class);
+            intent.putExtra("pseudo",binding.pseudo.getText());
             startActivity(intent);
         });
     }

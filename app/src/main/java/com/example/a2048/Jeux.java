@@ -22,12 +22,16 @@ public class Jeux extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         binding.imgAccueil.setOnClickListener(v -> {
-            Intent intent = new Intent(Jeux.this,Accueil.class);
-            startActivity(intent);
+            Intent intent2 = new Intent(Jeux.this,Accueil.class);
+            startActivity(intent2);
         });
         binding.imgRejouer.setOnClickListener(v -> {
-            Intent intent = new Intent(Jeux.this,Jeux.class);
-            startActivity(intent);
+            Intent intent2 = new Intent(Jeux.this,Jeux.class);
+            startActivity(intent2);
         });
+        Intent intent = getIntent();
+        if(intent != null) {
+            binding.LoginVar.setText(intent.getStringExtra("pseudo"));
+        }
     }
 }

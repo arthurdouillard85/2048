@@ -43,8 +43,10 @@
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pseudo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:hint="Pseudo" />
             </com.google.android.material.textfield.TextInputLayout>
 
