@@ -40,6 +40,54 @@ public class Game2048 {
         }
     }
 
+    public void moveRight() {
+        boolean moved = false;
+        for (int row = 0; row < size; row++) {
+            for (int col = size - 1; col >= 0; col--) {
+                Tile tile = grid[row][col];
+                if (tile.getValue() != 0) {
+                    // Déplacer la tuile autant que possible vers la droite
+                    moved |= moveTile(tile, row, col, 1, 0);
+                }
+            }
+        }
+        if (moved) {
+            addRandomTile();
+        }
+    }
+
+    public void moveUp() {
+        boolean moved = false;
+        for (int col = 0; col < size; col++) {
+            for (int row = 0; row < size; row++) {
+                Tile tile = grid[row][col];
+                if (tile.getValue() != 0) {
+                    // Déplacer la tuile autant que possible vers le haut
+                    moved |= moveTile(tile, row, col, 0, -1);
+                }
+            }
+        }
+        if (moved) {
+            addRandomTile();
+        }
+    }
+
+    public void moveDown() {
+        boolean moved = false;
+        for (int col = 0; col < size; col++) {
+            for (int row = size - 1; row >= 0; row--) {
+                Tile tile = grid[row][col];
+                if (tile.getValue() != 0) {
+                    // Déplacer la tuile autant que possible vers le bas
+                    moved |= moveTile(tile, row, col, 0, 1);
+                }
+            }
+        }
+        if (moved) {
+            addRandomTile();
+        }
+    }
+
     private boolean moveTile(Tile tile, int row, int col, int dRow, int dCol) {
         int newRow = row + dRow;
         int newCol = col + dCol;
@@ -91,7 +139,32 @@ public class Game2048 {
         return true;
     }
 
-    // Ajouter des méthodes pour d'autres mouvements (droite, haut, bas) si nécessaire
+    public void setGrid(Tile[][] grid){
+        this.grid = grid;
+    }
 
-    // Getters et Setters
+    public Tile[][] getGrid() {
+        return grid;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public int getScore(){
+        return 10;
+    }
 }
+
