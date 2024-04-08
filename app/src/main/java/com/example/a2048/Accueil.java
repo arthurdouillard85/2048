@@ -27,5 +27,11 @@ public class Accueil extends AppCompatActivity {
             Intent intent = new Intent(Accueil.this,Classement.class);
             startActivity(intent);
         });
+        binding.jouer.setOnClickListener(v -> {
+            Intent intent = new Intent(Accueil.this,Jeux.class);
+            startActivity(intent);
+        });
     }
+
+
 }
