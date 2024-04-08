@@ -2,17 +2,32 @@ package com.example.a2048;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.a2048.databinding.ActivityJeuxBinding;
 import com.example.a2048.databinding.ActivityMainBinding;
 
 public class Jeux extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityJeuxBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityJeuxBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.imgAccueil.setOnClickListener(v -> {
+            Intent intent = new Intent(Jeux.this,Accueil.class);
+            startActivity(intent);
+        });
+        binding.imgRejouer.setOnClickListener(v -> {
+            Intent intent = new Intent(Jeux.this,Jeux.class);
+            startActivity(intent);
+        });
     }
 }
