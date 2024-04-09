@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_tile_0">#BBBBBB</color> <!-- Couleur de la tuile "0" -->
     <color name="color_tile_2">#EEE4DA</color> <!-- Couleur de la tuile "2" -->
     <color name="color_tile_4">#EDE0C8</color> <!-- Couleur de la tuile "4" -->
     <color name="color_tile_8">#F2B179</color> <!-- Couleur de la tuile "8" -->
