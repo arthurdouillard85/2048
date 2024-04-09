@@ -91,13 +91,13 @@ public class Jeux extends AppCompatActivity {
                 TextView textView = (TextView) binding.gridLayout.getChildAt(i * game.getSize() + j);
                 Tile tile = grid[i][j];
                 int valeur = tile.getValue();
-                if (tile.getValue() == 0) {
-                    textView.setText("");
-                    textView.setBackgroundColor(ContextCompat.getColor(this, R.color.color_board));
-                } else {
                     textView.setText(String.valueOf(tile.getValue()));
                     textView.setTextColor(ContextCompat.getColor(this, R.color.color_light_text));
                     switch (valeur){
+                        case 0:
+                            textView.setText("");
+                            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.color_tile_0));
+                            break;
                         case 2:
                             textView.setTextColor(ContextCompat.getColor(this, R.color.color_text));
                             textView.setBackgroundColor(ContextCompat.getColor(this, R.color.color_tile_2));
@@ -136,9 +136,6 @@ public class Jeux extends AppCompatActivity {
                         default:
                             textView.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
                             break;
-                    }
-
-
                 }
             }
         }
