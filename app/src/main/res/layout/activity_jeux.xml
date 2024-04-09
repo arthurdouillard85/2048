@@ -54,16 +54,17 @@
 
             <TextView
                 android:id="@+id/LoginVar"
-                android:layout_width="519dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center_vertical"
-                android:text="      Login"
-                android:textSize="24sp" />
+                android:text="Login"
+                android:textSize="24sp"
+                android:paddingLeft="20dp"/>
 
             <ImageButton
                 android:id="@+id/imgAccueil"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -73,7 +74,7 @@
 
             <ImageButton
                 android:id="@+id/imgRejouer"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -87,10 +88,10 @@
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="413dp"
-        android:layout_height="413dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:background="@color/color_board"
         android:columnCount="4"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,25 +101,28 @@
 
         <TextView
             android:id="@+id/tile00"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
-            android:textSize="24sp" />
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/tile01"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp" />
         <TextView
             android:id="@+id/tile02"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -126,8 +130,9 @@
 
         <TextView
             android:id="@+id/tile03"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -135,8 +140,9 @@
 
         <TextView
             android:id="@+id/tile10"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -144,16 +150,18 @@
 
         <TextView
             android:id="@+id/tile11"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp"/>
         <TextView
             android:id="@+id/tile12"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -161,8 +169,9 @@
 
         <TextView
             android:id="@+id/tile13"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -170,8 +179,9 @@
 
         <TextView
             android:id="@+id/tile20"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -179,16 +189,18 @@
 
         <TextView
             android:id="@+id/tile21"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp" />
         <TextView
             android:id="@+id/tile22"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -196,8 +208,9 @@
 
         <TextView
             android:id="@+id/tile23"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -205,8 +218,9 @@
 
         <TextView
             android:id="@+id/tile30"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -214,16 +228,18 @@
 
         <TextView
             android:id="@+id/tile31"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
             android:textSize="24sp"/>
         <TextView
             android:id="@+id/tile32"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
@@ -231,8 +247,9 @@
 
         <TextView
             android:id="@+id/tile33"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
             android:background="@color/white"
             android:gravity="center"
             android:text=""
