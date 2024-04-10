@@ -21,8 +21,8 @@ public class Game2048 {
             }
         }
         // Placez deux tuiles au hasard au début du jeu
-        addRandomTile();
-        addRandomTile();
+        addRandomTile(2);
+        addRandomTile(2);
     }
 
     public void moveLeft() {
@@ -148,7 +148,22 @@ public class Game2048 {
         }
         if (!emptyTiles.isEmpty()) {
             Tile tile = emptyTiles.get(random.nextInt(emptyTiles.size()));
-            tile.setValue(random.nextInt(2) == 0 ? 2 : 4);
+            tile.setValue(random.nextInt(5) == 0 ? 4 : 2);
+        }
+    }
+
+    private void addRandomTile(int value) {
+        List<Tile> emptyTiles = new ArrayList<>();
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (grid[row][col].getValue() == 0) {
+                    emptyTiles.add(grid[row][col]);
+                }
+            }
+        }
+        if (!emptyTiles.isEmpty()) {
+            Tile tile = emptyTiles.get(random.nextInt(emptyTiles.size()));
+            tile.setValue(value);
         }
     }
 
