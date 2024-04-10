@@ -34,16 +34,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right"
+                android:gravity="center"
                 android:text="Score : "
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/ScoreVar"
-                android:layout_width="21dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text=""
                 android:textSize="24sp" />
         </LinearLayout>
 

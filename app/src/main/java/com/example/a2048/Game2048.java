@@ -8,6 +8,7 @@ public class Game2048 {
     private Tile[][] grid;
     private int size;
     private Random random;
+    private Integer score = 0;
 
     public Game2048(int size) {
         this.size = size;
@@ -26,14 +27,12 @@ public class Game2048 {
 
     public void moveLeft() {
         boolean moved = false;
-        for (int row = 0; row < size; row++) {
-            for (int col = 0; col < size; col++) {
+        for (int col = 0; col < size; col++) {
+            for (int row = size - 1; row >= 0; row--) {
                 Tile tile = grid[row][col];
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers la gauche
-                    moved |= moveTile(tile, row, col, -1, 0);
-                    moved = true;
-
+                    moved = moveTile(tile, row, col, 0, -1, false);
                 }
             }
         }
@@ -44,13 +43,12 @@ public class Game2048 {
 
     public void moveRight() {
         boolean moved = false;
-        for (int row = 0; row < size; row++) {
-            for (int col = size - 1; col >= 0; col--) {
+        for (int col = size - 1; col >= 0; col--) {
+            for (int row = size - 1; row >= 0; row--) {
                 Tile tile = grid[row][col];
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers la droite
-                    moved |= moveTile(tile, row, col, 1, 0);
-                    moved = true;
+                    moved = moveTile(tile, row, col, 0, 1, false);
                 }
             }
         }
@@ -61,13 +59,12 @@ public class Game2048 {
 
     public void moveUp() {
         boolean moved = false;
-        for (int col = 0; col < size; col++) {
-            for (int row = 0; row < size; row++) {
+        for (int row = 0; row < size; row++) {
+            for (int col = size - 1; col >= 0; col--) {
                 Tile tile = grid[row][col];
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers le haut
-                    moved |= moveTile(tile, row, col, 0, -1);
-                    moved = true;
+                    moved = moveTile(tile, row, col, -1, 0, false);
                 }
             }
         }
@@ -78,13 +75,12 @@ public class Game2048 {
 
     public void moveDown() {
         boolean moved = false;
-        for (int col = 0; col < size; col++) {
-            for (int row = size - 1; row >= 0; row--) {
+        for (int row = size - 1; row >= 0; row--) {
+            for (int col = size - 1; col >= 0; col--) {
                 Tile tile = grid[row][col];
                 if (tile.getValue() != 0) {
                     // Déplacer la tuile autant que possible vers le bas
-                    moved |= moveTile(tile, row, col, 0, 1);
-                    moved = true;
+                    moved = moveTile(tile, row, col, 1, 0, false);
                 }
             }
         }
@@ -93,24 +89,26 @@ public class Game2048 {
         }
     }
 
-    private boolean moveTile(Tile tile, int row, int col, int dRow, int dCol) {
+    private boolean moveTile(Tile tile, int row, int col, int dRow, int dCol, boolean deplacer) {
         int newRow = row + dRow;
         int newCol = col + dCol;
         if (newRow < 0 || newRow >= size || newCol < 0 || newCol >= size) {
-            return false;
+            return deplacer;
         }
         if (grid[newRow][newCol].getValue() == 0) {
             // Déplacer la tuile
             grid[newRow][newCol].setValue(tile.getValue());
             grid[row][col].setValue(0);
-            return moveTile(grid[newRow][newCol], newRow, newCol, dRow, dCol);
+            return moveTile(grid[newRow][newCol], newRow, newCol, dRow, dCol, true);
         } else if (grid[newRow][newCol].getValue() == tile.getValue()) {
+            // Augmenter le score
+            score += tile.getValue() * 2;
             // Fusionner les tuiles de même valeur
             grid[newRow][newCol].setValue(tile.getValue() * 2);
             grid[row][col].setValue(0);
             return true;
         }
-        return false;
+        return deplacer;
     }
 
     private void addRandomTile() {
@@ -169,7 +167,7 @@ public class Game2048 {
     }
 
     public int getScore(){
-        return 10;
+        return score;
     }
 }
 

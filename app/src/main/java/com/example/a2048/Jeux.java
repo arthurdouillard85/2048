@@ -35,15 +35,15 @@ public class Jeux extends AppCompatActivity {
 
                 if (Math.abs(distanceX) > Math.abs(distanceY)) {
                     if (distanceX > 0) {
-                        game.moveDown();
-                    } else {
-                        game.moveUp();
-                    }
-                } else {
-                    if (distanceY > 0) {
                         game.moveRight();
                     } else {
                         game.moveLeft();
+                    }
+                } else {
+                    if (distanceY > 0) {
+                        game.moveDown();
+                    } else {
+                        game.moveUp();
                     }
                 }
                 updateUI();
