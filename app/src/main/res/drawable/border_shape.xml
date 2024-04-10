@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Définir la couleur de fond de la bordure -->
+    <solid android:color="@android:color/transparent" />
+    <!-- Définir la largeur et la couleur de la bordure -->
+    <stroke
+        android:width="10dp"
+        android:color="@color/color_board" />
+    <corners android:radius="20dp" />
+</shape>
