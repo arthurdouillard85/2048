@@ -87,7 +87,7 @@ public class GameOver extends AppCompatActivity {
         });
         binding.restartButton.setOnClickListener(v -> {
             Intent intent2 = new Intent(GameOver.this, Jeux.class);
-            //intent2.putExtra("pseudo", pseudo);
+            intent2.putExtra("pseudo", binding.pseudoJoueur.getText().toString());
             startActivity(intent2);
         });
     }
