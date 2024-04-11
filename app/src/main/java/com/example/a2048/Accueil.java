@@ -3,6 +3,7 @@ package com.example.a2048;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -18,6 +19,8 @@ public class Accueil extends AppCompatActivity {
 
         binding = ActivityAccueilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent stopAllServicesIntent = new Intent("com.example.a2048.STOP_ALL_SERVICES");
+        sendBroadcast(stopAllServicesIntent);
     }
 
     @Override
@@ -28,8 +31,11 @@ public class Accueil extends AppCompatActivity {
             startActivity(intent);
         });
         binding.jouer.setOnClickListener(v -> {
+            Intent musicServiceIntent = new Intent(getApplicationContext(), MusicService.class);
+            startService(musicServiceIntent);
             Intent intent = new Intent(Accueil.this,Jeux.class);
             intent.putExtra("pseudo",binding.pseudo.getText().toString());
+            intent.putExtra("service",musicServiceIntent);
             startActivity(intent);
         });
     }

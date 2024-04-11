@@ -17,7 +17,8 @@ public class Jeux extends AppCompatActivity {
     private ActivityJeuxBinding binding;
     private Game2048 game;
     private GestureDetector gestureDetector;
-    private String pseudo = "Login";
+    private String pseudo;
+    private Intent service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,27 @@ public class Jeux extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Intent intent = getIntent();
+        if(intent != null) {
+            pseudo = intent.getStringExtra("pseudo");
+            service = intent.getParcelableExtra("service");
+            binding.LoginVar.setText(pseudo);
+        }
+        binding.imgAccueil.setOnClickListener(v -> {
+            if (service != null){
+                stopService(service);
+            }
+            Intent intent2 = new Intent(Jeux.this,Accueil.class);
+            startActivity(intent2);
+        });
+        binding.imgRejouer.setOnClickListener(v -> {
+            Intent intent2 = new Intent(Jeux.this,Jeux.class);
+            intent2.putExtra("pseudo",pseudo);
+            if (service != null) {
+                intent2.putExtra("service", service);
+            }
+            startActivity(intent2);
+        });
     }
 
     @Override
@@ -140,6 +162,8 @@ public class Jeux extends AppCompatActivity {
         }
         binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
+            stopService(service);
+            binding.gridLayout.setOnTouchListener(null);
             EndGame p = new EndGame(pseudo, game.getScore(), game.getBestTile());
             Intent intent = new Intent(Jeux.this, GameOver.class);
             Bundle bundle = new Bundle();
