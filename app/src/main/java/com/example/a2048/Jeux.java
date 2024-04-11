@@ -2,6 +2,7 @@ package com.example.a2048;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -18,6 +19,7 @@ public class Jeux extends AppCompatActivity {
     private Game2048 game;
     private GestureDetector gestureDetector;
     private String pseudo;
+    private Intent service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,18 +67,24 @@ public class Jeux extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null) {
             pseudo = intent.getStringExtra("pseudo");
+            service = intent.getParcelableExtra("service");
             binding.LoginVar.setText(pseudo);
         }
         binding.imgAccueil.setOnClickListener(v -> {
+            if (service != null){
+                stopService(service);
+            }
             Intent intent2 = new Intent(Jeux.this,Accueil.class);
             startActivity(intent2);
         });
         binding.imgRejouer.setOnClickListener(v -> {
             Intent intent2 = new Intent(Jeux.this,Jeux.class);
             intent2.putExtra("pseudo",pseudo);
+            if (service != null) {
+                intent2.putExtra("service", service);
+            }
             startActivity(intent2);
         });
-
     }
 
     @Override
@@ -141,6 +149,7 @@ public class Jeux extends AppCompatActivity {
         }
         binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
+            stopService(service);
             binding.gridLayout.setOnTouchListener(null);
             Intent intent2 = new Intent(Jeux.this, Classement.class);
             intent2.putExtra("pseudo",pseudo);

@@ -19,6 +19,8 @@ public class Accueil extends AppCompatActivity {
 
         binding = ActivityAccueilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent stopAllServicesIntent = new Intent("com.example.a2048.STOP_ALL_SERVICES");
+        sendBroadcast(stopAllServicesIntent);
     }
 
     @Override
@@ -33,6 +35,7 @@ public class Accueil extends AppCompatActivity {
             startService(musicServiceIntent);
             Intent intent = new Intent(Accueil.this,Jeux.class);
             intent.putExtra("pseudo",binding.pseudo.getText().toString());
+            intent.putExtra("service",musicServiceIntent);
             startActivity(intent);
         });
     }

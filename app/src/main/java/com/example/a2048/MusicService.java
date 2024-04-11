@@ -27,7 +27,7 @@ public class MusicService extends Service {
         super.onCreate();
         player.reset();
 
-        int resId = getResources().getIdentifier("demouler_un_cake", "raw", getPackageName());
+        int resId = getResources().getIdentifier("game_song", "raw", getPackageName());
 
         if (resId != 0) {
             // Ouvrir un flux de ressources pour la ressource brute
@@ -49,19 +49,6 @@ public class MusicService extends Service {
             // La ressource brute n'a pas été trouvée
             Log.e("MediaPlayer", "Ressource brute non trouvée");
         }
-        // Planifier le changement de musique toutes les minutes
-        //timer = new Timer();
-        //timer.scheduleAtFixedRate(new TimerTask() {
-        //    @Override
-        //    public void run() {
-        //        // Changer la musique
-        //        changeMusic();
-        //    }
-        //}, 0, 60 * 1000); // Change la musique toutes les minutes
-    }
-
-    private void changeMusic() {
-        // Changez la musique ici (charger une nouvelle piste, etc.)
     }
 
     @Override
@@ -70,6 +57,8 @@ public class MusicService extends Service {
         // Arrêter la musique et le timer lors de la destruction du service
         player.stop();
         player.release();
-        timer.cancel();
+        if (timer != null){
+            timer.cancel();
+        }
     }
 }
