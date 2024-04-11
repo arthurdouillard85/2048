@@ -2,14 +2,19 @@ package com.example.a2048;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Environment;
 import android.os.IBinder;
+import android.util.Log;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class MusicService extends Service {
-    private MediaPlayer mediaPlayer;
+    private final MediaPlayer player = new MediaPlayer();
     private Timer timer;
 
     @Override
@@ -20,10 +25,30 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        // Initialiser le lecteur de musique
-        mediaPlayer = MediaPlayer.create(this, R.raw.master_of_puppet);
-        mediaPlayer.setLooping(true);
+        player.reset();
 
+        int resId = getResources().getIdentifier("demouler_un_cake", "raw", getPackageName());
+
+        if (resId != 0) {
+            // Ouvrir un flux de ressources pour la ressource brute
+            AssetFileDescriptor afd = getResources().openRawResourceFd(resId);
+
+            if (afd != null) {
+                try {
+                    // Définir le lecteur de données sur le flux de ressources
+                    player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                    player.prepare();
+                    player.start();
+                    // Libérer le flux de ressources après utilisation
+                    afd.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            // La ressource brute n'a pas été trouvée
+            Log.e("MediaPlayer", "Ressource brute non trouvée");
+        }
         // Planifier le changement de musique toutes les minutes
         //timer = new Timer();
         //timer.scheduleAtFixedRate(new TimerTask() {
@@ -43,8 +68,8 @@ public class MusicService extends Service {
     public void onDestroy() {
         super.onDestroy();
         // Arrêter la musique et le timer lors de la destruction du service
-        mediaPlayer.stop();
-        mediaPlayer.release();
+        player.stop();
+        player.release();
         timer.cancel();
     }
 }
