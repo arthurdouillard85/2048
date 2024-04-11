@@ -17,7 +17,7 @@ public class Jeux extends AppCompatActivity {
     private ActivityJeuxBinding binding;
     private Game2048 game;
     private GestureDetector gestureDetector;
-    private String pseudo;
+    private String pseudo = "Login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,10 +141,12 @@ public class Jeux extends AppCompatActivity {
         }
         binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
-            binding.gridLayout.setOnTouchListener(null);
-            Intent intent2 = new Intent(Jeux.this, Classement.class);
-            intent2.putExtra("pseudo",pseudo);
-            startActivity(intent2);
+            EndGame p = new EndGame(pseudo, game.getScore(), 10);
+            Intent intent = new Intent(Jeux.this, GameOver.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("STATS",p);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
     }
 }

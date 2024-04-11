@@ -168,7 +168,7 @@ public class Game2048 {
     }
 
     public boolean isGameOver() {
-        // Vérifier s'il existe des mouvements possibles ou s'il reste des tuiles vides
+        //Vérifier s'il existe des mouvements possibles ou s'il reste des tuiles vides
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
                 if (grid[row][col].getValue() == 0) {
@@ -181,6 +181,18 @@ public class Game2048 {
             }
         }
         return true;
+    }
+
+    public int getBestTile(){
+        int bestTile = 0;
+        for (int row = 0; row < size; row++){
+            for(int col = 0;col < size; col++){
+                if(grid[row][col].getValue() > bestTile){
+                    bestTile = grid[row][col].getValue();
+                }
+            }
+        }
+        return bestTile;
     }
 
     public void setGrid(Tile[][] grid){
