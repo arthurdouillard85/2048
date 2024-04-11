@@ -28,6 +28,8 @@ public class Accueil extends AppCompatActivity {
             startActivity(intent);
         });
         binding.jouer.setOnClickListener(v -> {
+            Intent musicServiceIntent = new Intent(getApplicationContext(), MusicService.class); // Remplacez MusicService.class par votre classe de service réelle
+            startService(musicServiceIntent);
             Intent intent = new Intent(Accueil.this,Jeux.class);
             intent.putExtra("pseudo",binding.pseudo.getText().toString());
             startActivity(intent);
