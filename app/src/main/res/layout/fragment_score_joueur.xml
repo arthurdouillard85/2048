@@ -3,49 +3,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ScoreJoueur">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="412dp"
+        android:layout_height="728dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="4">
+            android:layout_height="624dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Position"
-                android:layout_width="wrap_content"
-                android:layout_height="200px"
-                android:layout_weight="1"
-                android:text="Position"
-                android:gravity="center"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/Pseudo"
-                android:layout_width="wrap_content"
-                android:layout_height="200px"
-                android:layout_weight="1"
-                android:text="Pseudo"
-                android:gravity="center"/>
+                <LinearLayout
+                    android:layout_width="91dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Score"
-                android:layout_width="wrap_content"
-                android:layout_height="200px"
-                android:layout_weight="1"
-                android:text="Score"
-                android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/textClassement"
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textSize="34sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/meilleure_case"
-                android:layout_width="200px"
-                android:layout_height="200px"
-                android:layout_weight="1"
-                android:src="@drawable/accueil" />
+                <LinearLayout
+                    android:layout_width="165dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="BastienLeBG"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textScore"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="100000"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageBestCase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/logo" />
+
+            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
