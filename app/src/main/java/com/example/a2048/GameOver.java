@@ -3,19 +3,19 @@ package com.example.a2048;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.a2048.databinding.ActivityAccueilBinding;
 import com.example.a2048.databinding.ActivityGameOverBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameOver extends AppCompatActivity {
 
     private ActivityGameOverBinding binding;
+    private List<ScoreJoueur> fragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,17 @@ public class GameOver extends AppCompatActivity {
 
         binding = ActivityGameOverBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        fragments = new ArrayList<>();
+        fragments.add(ScoreJoueur.newInstance("1", "Bastien", 10001, 2048));
+        fragments.add(ScoreJoueur.newInstance("2", "Loan", 10001, 2));
+        fragments.add(ScoreJoueur.newInstance("3", "Arthur", 10001, 4));
+        fragments.add(ScoreJoueur.newInstance("4", "Armoif", 10001, 8));
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        for(ScoreJoueur frag : fragments) {
+            ft.add(R.id.fragment_container2,frag);
+        }
+        ft.commit();
     }
 
     @Override

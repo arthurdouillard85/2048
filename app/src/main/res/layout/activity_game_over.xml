@@ -111,10 +111,11 @@
         android:contentDescription="ImageButton" />
 
     <LinearLayout
+        android:id="@+id/fragment_container2"
         android:layout_width="match_parent"
-        android:layout_height="381dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textMeilleurJoueur"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"></LinearLayout>
 
 </RelativeLayout>

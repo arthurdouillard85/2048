@@ -1,16 +1,15 @@
 package com.example.a2048;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
-        import android.content.Intent;
-        import android.os.Bundle;
+import android.content.Intent;
+import android.os.Bundle;
 
-        //import com.example.a2048.databinding.ActivityAccueilBinding;
-        import com.example.a2048.databinding.ActivityClassementBinding;
+import com.example.a2048.databinding.ActivityClassementBinding;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Classement extends AppCompatActivity {
 
