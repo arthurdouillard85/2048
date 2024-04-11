@@ -140,7 +140,7 @@ public class Jeux extends AppCompatActivity {
         }
         binding.textViewScore.setText(getString(R.string.score) + " " + game.getScore());
         if (game.isGameOver()) {
-            EndGame p = new EndGame(pseudo, game.getScore(), 10);
+            EndGame p = new EndGame(pseudo, game.getScore(), game.getBestTile());
             Intent intent = new Intent(Jeux.this, GameOver.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("STATS",p);

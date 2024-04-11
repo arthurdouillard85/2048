@@ -169,17 +169,17 @@ public class Game2048 {
 
     public boolean isGameOver() {
         //Vérifier s'il existe des mouvements possibles ou s'il reste des tuiles vides
-        //for (int row = 0; row < size; row++) {
-        //    for (int col = 0; col < size; col++) {
-        //        if (grid[row][col].getValue() == 0) {
-        //            return false;
-        //        }
-        //        if ((col < size - 1 && grid[row][col].getValue() == grid[row][col + 1].getValue()) ||
-        //                (row < size - 1 && grid[row][col].getValue() == grid[row + 1][col].getValue())) {
-        //            return false;
-        //        }
-        //    }
-        //}
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (grid[row][col].getValue() == 0) {
+                    return false;
+                }
+                if ((col < size - 1 && grid[row][col].getValue() == grid[row][col + 1].getValue()) ||
+                        (row < size - 1 && grid[row][col].getValue() == grid[row + 1][col].getValue())) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 

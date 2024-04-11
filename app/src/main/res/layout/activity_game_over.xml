@@ -75,6 +75,8 @@
         android:layout_below="@id/textScore"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:gravity="center"
         android:text="best Case : " />
 
     <TextView
