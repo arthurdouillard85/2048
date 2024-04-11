@@ -22,17 +22,17 @@ public class MusicService extends Service {
         super.onCreate();
         // Initialiser le lecteur de musique
         mediaPlayer = MediaPlayer.create(this, R.raw.master_of_puppet);
-        mediaPlayer.setLooping(true); // Pour répéter la musique
+        mediaPlayer.setLooping(true);
 
         // Planifier le changement de musique toutes les minutes
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                // Changer la musique
-                changeMusic();
-            }
-        }, 0, 60 * 1000); // Change la musique toutes les minutes
+        //timer = new Timer();
+        //timer.scheduleAtFixedRate(new TimerTask() {
+        //    @Override
+        //    public void run() {
+        //        // Changer la musique
+        //        changeMusic();
+        //    }
+        //}, 0, 60 * 1000); // Change la musique toutes les minutes
     }
 
     private void changeMusic() {
