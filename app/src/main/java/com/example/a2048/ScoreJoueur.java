@@ -68,10 +68,10 @@ public class ScoreJoueur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentScoreJoueurBinding.inflate(inflater, container, false);
-        binding.textClassement.setText(classement);
+        binding.textClassement.setText(String.valueOf(classement));
         binding.textName.setText(name);
-        binding.textScore.setText(score);
-        binding.textBestCase.setText(bestCase);
+        binding.textScore.setText(String.valueOf(score));
+        binding.textBestCase.setText(String.valueOf(bestCase));
         return binding.getRoot();
     }
 }

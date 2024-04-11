@@ -23,7 +23,6 @@ public class Classement extends AppCompatActivity {
         binding = ActivityClassementBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setContentView(R.layout.fragment_score_joueur);
         fragments = new ArrayList<>();
         fragments.add(ScoreJoueur.newInstance("1", "Bastien", 10001, 2048));
         fragments.add(ScoreJoueur.newInstance("2", "Loan", 10001, 2));
