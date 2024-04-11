@@ -46,11 +46,23 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/pseudoJoueur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_tile_2048"
+        android:text="Pseudo" />
+
+    <TextView
         android:id="@+id/textScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/pseudoJoueur"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/color_tile_8"
@@ -62,7 +74,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/textScore"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="best Case : " />
 
     <TextView
@@ -71,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textBestTile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/color_tile_64"
