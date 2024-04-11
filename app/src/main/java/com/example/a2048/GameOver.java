@@ -32,7 +32,7 @@ public class GameOver extends AppCompatActivity {
             Bundle bundle = intent.getExtras();
             EndGame p = (EndGame) bundle.getSerializable("STATS");
             binding.textMeilleurJoueur.setText(p.getNomJoueur());
-            binding.textBestTile.setText(getString(R.string.end_best_tile) + " " + p.getBestTile());
+            binding.textBestTile.setText(Integer.toString(p.getBestTile()));
             binding.textScore.setText(getString(R.string.end_score) + " " + p.getScore());
         }
         binding.accueilButton.setOnClickListener(v -> {
