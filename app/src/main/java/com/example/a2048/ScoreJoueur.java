@@ -55,8 +55,6 @@ public class ScoreJoueur extends Fragment {
         return fragment;
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +71,7 @@ public class ScoreJoueur extends Fragment {
         binding.textClassement.setText(classement);
         binding.textName.setText(name);
         binding.textScore.setText(score);
-        //binding.imageBestCase.setImageResource();
+        binding.textBestCase.setText(bestCase);
         return binding.getRoot();
     }
 }
