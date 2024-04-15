@@ -1,6 +1,7 @@
 package com.example.a2048;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,8 @@ import com.example.a2048.databinding.ActivityGameOverBinding;
 public class GameOver extends AppCompatActivity {
 
     private ActivityGameOverBinding binding;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class GameOver extends AppCompatActivity {
 
         binding = ActivityGameOverBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        prefs = getSharedPreferences("LISTE_INFOS",MODE_PRIVATE);
+        editor = prefs.edit();
     }
 
     @Override
@@ -80,6 +86,12 @@ public class GameOver extends AppCompatActivity {
                     break;
             }
             binding.textScore.setText(getString(R.string.end_score) + " " + p.getScore());
+            editor.putString("PSEUDO", p.getNomJoueur());
+            editor.putInt("BEST_TILE",p.getBestTile());
+            editor.putInt("SCORE", p.getScore());
+            editor.apply();
+
+
         }
         binding.accueilButton.setOnClickListener(v -> {
             Intent intent2 = new Intent(GameOver.this, Accueil.class);

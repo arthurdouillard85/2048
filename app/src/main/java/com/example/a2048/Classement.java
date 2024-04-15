@@ -4,6 +4,7 @@ package com.example.a2048;
         import androidx.fragment.app.FragmentTransaction;
 
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.os.Bundle;
 
         //import com.example.a2048.databinding.ActivityAccueilBinding;
@@ -16,6 +17,10 @@ public class Classement extends AppCompatActivity {
 
     private ActivityClassementBinding binding;
     private List<ScoreJoueur> fragments;
+    private SharedPreferences prefs;
+    private String pseudo;
+    private int score;
+    private int best_tile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +28,14 @@ public class Classement extends AppCompatActivity {
         binding = ActivityClassementBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        prefs = getSharedPreferences("LISTE_INFOS",MODE_PRIVATE);
+        pseudo = prefs.getString("PSEUDO", "guest");
+        score = prefs.getInt("SCORE", 0);
+        best_tile = prefs.getInt("BEST_TILE", 0);
+
+
         fragments = new ArrayList<>();
-        fragments.add(ScoreJoueur.newInstance("1", "Bastien", 10001, 2048));
+        fragments.add(ScoreJoueur.newInstance("1", pseudo, score, best_tile));
         fragments.add(ScoreJoueur.newInstance("2", "Loan", 10001, 2));
         fragments.add(ScoreJoueur.newInstance("3", "Arthur", 10001, 4));
         fragments.add(ScoreJoueur.newInstance("4", "Armoif", 10001, 8));
