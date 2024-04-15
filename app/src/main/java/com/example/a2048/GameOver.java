@@ -101,7 +101,7 @@ public class GameOver extends AppCompatActivity {
             startService(musicServiceIntent);
             Intent intent2 = new Intent(GameOver.this, Jeux.class);
             intent2.putExtra("pseudo", binding.pseudoJoueur.getText().toString());
-            intent.putExtra("service",musicServiceIntent);
+            intent2.putExtra("service",musicServiceIntent);
             startActivity(intent2);
         });
     }
