@@ -15,6 +15,7 @@ package com.example.a2048;
 
 public class Classement extends AppCompatActivity {
 
+    private static ArrayList statScore;
     private ActivityClassementBinding binding;
     private List<ScoreJoueur> fragments;
     private SharedPreferences prefs;
@@ -36,9 +37,6 @@ public class Classement extends AppCompatActivity {
 
         fragments = new ArrayList<>();
         fragments.add(ScoreJoueur.newInstance("1", pseudo, score, best_tile));
-        fragments.add(ScoreJoueur.newInstance("2", "Loan", 10001, 2));
-        fragments.add(ScoreJoueur.newInstance("3", "Arthur", 10001, 4));
-        fragments.add(ScoreJoueur.newInstance("4", "Armoif", 10001, 8));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         for(ScoreJoueur frag : fragments) {
             ft.add(R.id.fragment_container,frag);
