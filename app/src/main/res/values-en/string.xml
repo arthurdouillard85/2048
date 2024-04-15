@@ -7,5 +7,5 @@
     <string name="end_best_player">Best Player :</string>
     <string name="ranking">Ranking</string>
     <string name="player_name"> Player Name : </string>
-
+    <string name="game_over">Game Over !</string>
 </resources>

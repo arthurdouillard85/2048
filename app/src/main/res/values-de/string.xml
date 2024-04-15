@@ -7,5 +7,4 @@
     <string name="end_best_player">Bester Spieler :</string>
     <string name="ranking">Rangfolge</string>
     <string name="player_name">Spieler Name : </string>
-
-</resources>
+    <string name="game_over">Spiele Vorbei !</string></resources>
