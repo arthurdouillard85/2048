@@ -31,15 +31,6 @@ public class Jeux extends AppCompatActivity {
             pseudo = intent.getStringExtra("pseudo");
             binding.LoginVar.setText(pseudo);
         }
-        binding.imgAccueil.setOnClickListener(v -> {
-            Intent intent2 = new Intent(Jeux.this,Accueil.class);
-            startActivity(intent2);
-        });
-        binding.imgRejouer.setOnClickListener(v -> {
-            Intent intent2 = new Intent(Jeux.this,Jeux.class);
-            intent2.putExtra("pseudo",pseudo);
-            startActivity(intent2);
-        });
         updateUI();
 
         gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
