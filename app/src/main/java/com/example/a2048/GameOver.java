@@ -23,6 +23,7 @@ public class GameOver extends AppCompatActivity {
 
         binding = ActivityGameOverBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.textMeilleurJoueur.setText(R.string.end_best_player);
 
         fragments = new ArrayList<>();
         fragments.add(ScoreJoueur.newInstance("1", "Bastien", 10001, 2048));

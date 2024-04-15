@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">2048</string>
+    <string name="score">Score :</string>
+    <string name="end_score">Votre Score :</string>
+    <string name="end_best_tile">Meilleur Piece :</string>
+    <string name="end_best_player">Meilleurs Joueurs :</string>
+    <string name="ranking">Classement</string>
+    <string name="player_name">Nom du Joueur :</string>
+</resources>

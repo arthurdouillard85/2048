@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">2048</string>
-    <string name="score">Score :</string>
-    <string name="end_score">Votre Score :</string>
-    <string name="end_best_tile">Meilleur Piece :</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="countries">
+        <item>English</item>
+        <item>Français</item>
+        <item>Deutsch</item>
+    </string-array>
+    <string name="score"/>
+    <string name="end_score"/>
+    <string name="end_best_tile"/>
+    <string name="end_best_player"/>
+    <string name="ranking"/>
+    <string name="player_name"/>
 </resources>

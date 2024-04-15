@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">2048</string>
+    <string name="score">Score :</string>
+    <string name="end_score">Your Score :</string>
+    <string name="end_best_tile">Best Tile :</string>
+    <string name="end_best_player">Best Player :</string>
+    <string name="ranking">Ranking</string>
+    <string name="player_name"> Player Name : </string>
+
+</resources>
