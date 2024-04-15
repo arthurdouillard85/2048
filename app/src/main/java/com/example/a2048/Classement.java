@@ -17,7 +17,7 @@ public class Classement extends AppCompatActivity {
 
     private static ArrayList statScore;
     private ActivityClassementBinding binding;
-    private List<ScoreJoueur> fragments;
+    private List<ScoreJoueur> fragments = new ArrayList<>();
     private SharedPreferences prefs;
     private String pseudo;
     private int score;
@@ -34,12 +34,17 @@ public class Classement extends AppCompatActivity {
         score = prefs.getInt("SCORE", 0);
         best_tile = prefs.getInt("BEST_TILE", 0);
 
+        loadFragments(); // Charger les fragments déjà existants
+    }
 
-        fragments = new ArrayList<>();
-        fragments.add(ScoreJoueur.newInstance("1", pseudo, score, best_tile));
+    // Méthode pour charger les fragments déjà existants
+    private void loadFragments() {
+        // Ajouter le fragment existant
+        fragments.add(ScoreJoueur.newInstance(String.valueOf(fragments.size() + 1), pseudo, score, best_tile));
+        // Ajouter tous les fragments à la vue du conteneur de fragments
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        for(ScoreJoueur frag : fragments) {
-            ft.add(R.id.fragment_container,frag);
+        for (ScoreJoueur frag : fragments) {
+            ft.add(R.id.fragment_container, frag);
         }
         ft.commit();
     }
@@ -53,4 +58,6 @@ public class Classement extends AppCompatActivity {
         });
 
     }
+
+
 }
