@@ -1,9 +1,6 @@
 package com.example.a2048;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,24 +51,6 @@ public class Classement extends AppCompatActivity {
             }
         }
     }
-
-    // Méthode pour rafraîchir le conteneur de fragments
-    //private void refreshFragmentContainer() {
-    //    FragmentManager fragmentManager = getSupportFragmentManager();
-    //    FragmentTransaction ft = fragmentManager.beginTransaction();
-    //    // Supprimer tous les fragments existants
-    //    for (Fragment fragment : fragmentManager.getFragments()) {
-    //        ft.remove(fragment);
-    //    }
-    //    ft.commitNow();
-//
-    //    // Ajouter les nouveaux fragments
-    //    ft = fragmentManager.beginTransaction();
-    //    for (ScoreJoueur frag : fragments) {
-    //        ft.add(R.id.fragment_container, frag);
-    //    }
-    //    ft.commit();
-    //}
 
     @Override
     protected void onResume() {

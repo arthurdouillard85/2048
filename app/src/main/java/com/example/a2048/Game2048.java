@@ -195,28 +195,12 @@ public class Game2048 {
         return bestTile;
     }
 
-    public void setGrid(Tile[][] grid){
-        this.grid = grid;
-    }
-
     public Tile[][] getGrid() {
         return grid;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public int getSize() {
         return size;
-    }
-
-    public void setRandom(Random random) {
-        this.random = random;
-    }
-
-    public Random getRandom() {
-        return random;
     }
 
     public int getScore(){

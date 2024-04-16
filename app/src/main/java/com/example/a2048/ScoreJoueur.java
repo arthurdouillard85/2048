@@ -2,7 +2,6 @@ package com.example.a2048;
 
 import android.os.Bundle;
 
-import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 

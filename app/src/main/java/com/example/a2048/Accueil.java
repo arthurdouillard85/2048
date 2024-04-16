@@ -53,7 +53,6 @@ public class Accueil extends AppCompatActivity {
                 conf.setLocale(new Locale("de"));
                 res.updateConfiguration(conf, res.getDisplayMetrics());
                 break;
-
         }
     }
 

@@ -4,14 +4,11 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class MusicService extends Service {
     private final MediaPlayer player = new MediaPlayer();
