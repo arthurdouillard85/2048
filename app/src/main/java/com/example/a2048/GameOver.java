@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.example.a2048.databinding.ActivityAccueilBinding;
 import com.example.a2048.databinding.ActivityGameOverBinding;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GameOver extends AppCompatActivity {
 
@@ -29,6 +28,13 @@ public class GameOver extends AppCompatActivity {
 
         prefs = getSharedPreferences("LISTE_INFOS",MODE_PRIVATE);
         editor = prefs.edit();
+    }
+
+    private void saveScores(List<Score> scores) {
+        Gson gson = new Gson();
+        String json = gson.toJson(scores);
+        editor.putString("SCORES", json);
+        editor.apply();
     }
 
     @Override
@@ -86,11 +92,9 @@ public class GameOver extends AppCompatActivity {
                     break;
             }
             binding.textScore.setText(getString(R.string.end_score) + " " + p.getScore());
-            editor.putString("PSEUDO", p.getNomJoueur());
-            editor.putInt("BEST_TILE",p.getBestTile());
-            editor.putInt("SCORE", p.getScore());
-            editor.apply();
-
+            ArrayList<Score> scores = loadScores();
+            scores.add(createScoreObject(p));
+            saveScores(scores);
         }
         binding.accueilButton.setOnClickListener(v -> {
             Intent intent2 = new Intent(GameOver.this, Accueil.class);
@@ -101,5 +105,24 @@ public class GameOver extends AppCompatActivity {
             intent2.putExtra("pseudo", binding.pseudoJoueur.getText().toString());
             startActivity(intent2);
         });
+    }
+
+    private ArrayList<Score> loadScores() {
+        String json = prefs.getString("SCORES", null);
+        ArrayList<Score> scores = new ArrayList<>();
+        if (json != null) {
+            Gson gson = new Gson();
+            Score[] scoreArray = gson.fromJson(json, Score[].class);
+            scores.addAll(Arrays.asList(scoreArray));
+        }
+        return scores;
+    }
+
+    private Score createScoreObject(EndGame p) {
+        Score score = new Score();
+        score.setPseudo(p.getNomJoueur());
+        score.setBestTile(p.getBestTile());
+        score.setScore(p.getScore());
+        return score;
     }
 }
