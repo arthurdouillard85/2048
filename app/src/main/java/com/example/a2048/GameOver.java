@@ -91,7 +91,6 @@ public class GameOver extends AppCompatActivity {
             editor.putInt("SCORE", p.getScore());
             editor.apply();
 
-
         }
         binding.accueilButton.setOnClickListener(v -> {
             Intent intent2 = new Intent(GameOver.this, Accueil.class);
