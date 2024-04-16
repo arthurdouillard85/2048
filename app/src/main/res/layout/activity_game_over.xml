@@ -91,12 +91,12 @@
         android:textColor="@color/color_tile_64"
         android:text="Meilleurs joueurs" />
 
-    <FrameLayout
-        android:id="@+id/fragmentScoreContainer"
+    <LinearLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textMeilleurJoueur"
-        android:layout_marginTop="8dp" />
+        android:orientation="vertical" />
 
     <ImageButton
         android:id="@+id/restartButton"

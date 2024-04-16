@@ -6,6 +6,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.a2048.databinding.ActivityGameOverBinding;
 import com.google.gson.Gson;
 
@@ -18,6 +22,7 @@ import java.util.List;
 public class GameOver extends AppCompatActivity {
 
     private ActivityGameOverBinding binding;
+    private ArrayList<ScoreJoueur> fragments = new ArrayList<>();
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
 
@@ -116,9 +121,33 @@ public class GameOver extends AppCompatActivity {
             Gson gson = new Gson();
             Score[] scoreArray = gson.fromJson(json, Score[].class);
             scores.addAll(Arrays.asList(scoreArray));
+            if (scores != null) {
+                Collections.sort(scores, Comparator.comparing(Score::getScore).reversed());
+                for (int i = 0; i < 5; i++) {
+                    Score score = scores.get(i);
+                    fragments.add(ScoreJoueur.newInstance(String.valueOf(i + 1), score.getPseudo(), score.getScore(), score.getBestTile()));
+                }
+                refreshFragmentContainer();
+            }
         }
-        Collections.sort(scores, Comparator.comparing(Score::getScore).reversed());
         return scores;
+    }
+
+    private void refreshFragmentContainer() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        // Supprimer tous les fragments existants
+        for (Fragment fragment : fragmentManager.getFragments()) {
+            ft.remove(fragment);
+        }
+        ft.commitNow();
+
+        // Ajouter les nouveaux fragments
+        ft = fragmentManager.beginTransaction();
+        for (ScoreJoueur frag : fragments) {
+            ft.add(R.id.fragment_container, frag);
+        }
+        ft.commit();
     }
 
     private Score createScoreObject(EndGame p) {
