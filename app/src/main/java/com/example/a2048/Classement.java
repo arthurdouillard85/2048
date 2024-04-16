@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -45,32 +47,31 @@ public class Classement extends AppCompatActivity {
             ArrayList<Score> scores = gson.fromJson(jsonScores, type);
             Collections.sort(scores, Comparator.comparing(Score::getScore).reversed());
             if (scores != null) {
-                for (int i = 0; i < scores.size(); i++) {
-                    Score score = scores.get(i);
-                    fragments.add(ScoreJoueur.newInstance(String.valueOf(i + 1), score.getPseudo(), score.getScore(), score.getBestTile()));
-                }
-                refreshFragmentContainer();
+                RecyclerView recyclerView = findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                ScoreAdapter adapter = new ScoreAdapter(scores);
+                recyclerView.setAdapter(adapter);
             }
         }
     }
 
     // Méthode pour rafraîchir le conteneur de fragments
-    private void refreshFragmentContainer() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        // Supprimer tous les fragments existants
-        for (Fragment fragment : fragmentManager.getFragments()) {
-            ft.remove(fragment);
-        }
-        ft.commitNow();
-
-        // Ajouter les nouveaux fragments
-        ft = fragmentManager.beginTransaction();
-        for (ScoreJoueur frag : fragments) {
-            ft.add(R.id.fragment_container, frag);
-        }
-        ft.commit();
-    }
+    //private void refreshFragmentContainer() {
+    //    FragmentManager fragmentManager = getSupportFragmentManager();
+    //    FragmentTransaction ft = fragmentManager.beginTransaction();
+    //    // Supprimer tous les fragments existants
+    //    for (Fragment fragment : fragmentManager.getFragments()) {
+    //        ft.remove(fragment);
+    //    }
+    //    ft.commitNow();
+//
+    //    // Ajouter les nouveaux fragments
+    //    ft = fragmentManager.beginTransaction();
+    //    for (ScoreJoueur frag : fragments) {
+    //        ft.add(R.id.fragment_container, frag);
+    //    }
+    //    ft.commit();
+    //}
 
     @Override
     protected void onResume() {
