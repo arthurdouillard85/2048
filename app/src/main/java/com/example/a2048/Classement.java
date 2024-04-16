@@ -15,7 +15,8 @@ package com.example.a2048;
 
         import java.lang.reflect.Type;
         import java.util.ArrayList;
-        import java.util.List;
+        import java.util.Collections;
+        import java.util.Comparator;
 
 public class Classement extends AppCompatActivity {
 
@@ -41,7 +42,8 @@ public class Classement extends AppCompatActivity {
         if (jsonScores != null) {
             Gson gson = new Gson();
             Type type = new TypeToken<ArrayList<Score>>(){}.getType();
-            List<Score> scores = gson.fromJson(jsonScores, type);
+            ArrayList<Score> scores = gson.fromJson(jsonScores, type);
+            Collections.sort(scores, Comparator.comparing(Score::getScore).reversed());
             if (scores != null) {
                 for (int i = 0; i < scores.size(); i++) {
                     Score score = scores.get(i);

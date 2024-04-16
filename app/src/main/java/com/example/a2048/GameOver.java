@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GameOver extends AppCompatActivity {
@@ -115,6 +117,7 @@ public class GameOver extends AppCompatActivity {
             Score[] scoreArray = gson.fromJson(json, Score[].class);
             scores.addAll(Arrays.asList(scoreArray));
         }
+        Collections.sort(scores, Comparator.comparing(Score::getScore).reversed());
         return scores;
     }
 

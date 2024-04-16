@@ -3,6 +3,7 @@ package com.example.a2048;
 import android.os.Bundle;
 
 import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -72,6 +73,51 @@ public class ScoreJoueur extends Fragment {
         binding.textName.setText(name);
         binding.textScore.setText(String.valueOf(score));
         binding.textBestCase.setText(String.valueOf(bestCase));
+        binding.textBestCase.setTextColor(ContextCompat.getColor(this.getContext(), R.color.color_light_text));
+        switch (bestCase){
+            case 0:
+                binding.textBestCase.setText("");
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_0));
+                break;
+            case 2:
+                binding.textBestCase.setTextColor(ContextCompat.getColor(this.getContext(), R.color.color_text));
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_2));
+                break;
+            case 4:
+                binding.textBestCase.setTextColor(ContextCompat.getColor(this.getContext(), R.color.color_text));
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_4));
+                break;
+            case 8:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_8));
+                break;
+            case 16:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_16));
+                break;
+            case 32:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_32));
+                break;
+            case 64:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_64));
+                break;
+            case 128:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_128));
+                break;
+            case 256:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_256));
+                break;
+            case 512:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_512));
+                break;
+            case 1024:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_1024));
+                break;
+            case 2048:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.color_tile_2048));
+                break;
+            default:
+                binding.textBestCase.setBackgroundColor(ContextCompat.getColor(this.getContext(), R.color.red));
+                break;
+        }
         return binding.getRoot();
     }
 }
