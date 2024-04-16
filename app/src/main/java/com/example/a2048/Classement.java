@@ -10,7 +10,6 @@ package com.example.a2048;
         import android.os.Bundle;
 
         import com.example.a2048.databinding.ActivityClassementBinding;
-        import com.google.android.material.color.utilities.Score;
         import com.google.gson.Gson;
         import com.google.gson.reflect.TypeToken;
 
